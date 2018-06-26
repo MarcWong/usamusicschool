@@ -16,119 +16,18 @@ const state={
 	clientheight:0,
 	clientwidth:0,
 	footItems:[
-		{title:'ABOUT US',contents:{content_1:'contact us',content_2:'about vogue'}},
-		{title:'SERVICE',contents:{content_1:'payment methods',content_2:'track order'}},
-		{title:'POLICY',contents:{content_1:'privacy policy',content_2:'terms & condition'}},
-		{title:'FOLLOW US',contents:{content_1:'Facebook',content_2:'Instagram'}},	
+		{title:'联系方式',contents:{content_1:'电话：010-64805023 （王老师，刘老师）',content_2:''}},
+		{title:'地址',contents:{content_1:'北京市朝阳区湖景东路11号新奥购物中心H2-20-01 北京乐禾子国际钢琴艺术中心',content_2:''}},
+		{title:'Email',contents:{content_1:'chinaaudition@163.com',content_2:''}},	
 	],
 	left_nav:{
-		home:'home',
-		news:'news',
-		collections:'collections',
-		shop:'shop'
-	},
-	brandsArr:[
-				{name:'clot',src:'../static/images/clot.jpg'},
-				{name:'madness',src:'../static/images/madness.jpg'},
-				{name:'bape',src:'../static/images/bape.jpg'},
-				{name:'assc',src:'../static/images/assc.jpeg'},
-				
-	],
-	clotIntro:{
-			name:'clot',
-			time:'2003年6月',
-			person:'陈冠希',
-			story:"EDISON陈冠希2003年创办了自己的服装品牌CLOT，在上海,北京,香港等地开有Clot潮流店铺：ACU、JUICE，努力成为中国第一潮牌!EDISON近两年创办了自己的服装品牌CLOT,并自己参与服装的设计、用料等 各个方面,成为中国第一潮牌,并在世界上都有一定的影力.CLOT是一个LIFESTYLE的公司，创作服装，包括CLOT品牌服装以及在香港的 JUICE店铺、策划PARTY、帮助香港一些公司做consultant，例如NIKE、PEPSI…、更包括CLOT自己的音乐!现成员包括：陈冠 希、MC仁、陈奂仁、DJ Tommy、厨房仔、恭硕良等一起，CLOT是一个FAMILY，是一个不可分开的家庭,而他的店铺JUICE也成为香港游客的一旅游胜地!CLOT也经常会与一些其他大品牌生产合作产品,像LEVI'S,NIKE,PEPSI等品牌!",
-			shop:'ACU、JUICE',
-			src:'../static/images/clot.jpg'
-	},
-	madnessIntro:{
-			name:'madness',
-			time:'2003年6月',
-			person:'余文乐',
-			story:"EDISON陈冠希2003年创办了自己的服装品牌CLOT，在上海,北京,香港等地开有Clot潮流店铺：ACU、JUICE，努力成为中国第一潮牌!EDISON近两年创办了自己的服装品牌CLOT,并自己参与服装的设计、用料等 各个方面,成为中国第一潮牌,并在世界上都有一定的影力.CLOT是一个LIFESTYLE的公司，创作服装，包括CLOT品牌服装以及在香港的 JUICE店铺、策划PARTY、帮助香港一些公司做consultant，例如NIKE、PEPSI…、更包括CLOT自己的音乐!现成员包括：陈冠 希、MC仁、陈奂仁、DJ Tommy、厨房仔、恭硕良等一起，CLOT是一个FAMILY，是一个不可分开的家庭,而他的店铺JUICE也成为香港游客的一旅游胜地!CLOT也经常会与一些其他大品牌生产合作产品,像LEVI'S,NIKE,PEPSI等品牌!",
-			shop:'ACU、JUICE',
-			src:'../static/images/madness.jpg'
-	},
-	asscIntro:{
-			name:'assc',
-			time:'2003年6月',
-			person:'Neek Lurk',
-			story:"EDISON陈冠希2003年创办了自己的服装品牌CLOT，在上海,北京,香港等地开有Clot潮流店铺：ACU、JUICE，努力成为中国第一潮牌!EDISON近两年创办了自己的服装品牌CLOT,并自己参与服装的设计、用料等 各个方面,成为中国第一潮牌,并在世界上都有一定的影力.CLOT是一个LIFESTYLE的公司，创作服装，包括CLOT品牌服装以及在香港的 JUICE店铺、策划PARTY、帮助香港一些公司做consultant，例如NIKE、PEPSI…、更包括CLOT自己的音乐!现成员包括：陈冠 希、MC仁、陈奂仁、DJ Tommy、厨房仔、恭硕良等一起，CLOT是一个FAMILY，是一个不可分开的家庭,而他的店铺JUICE也成为香港游客的一旅游胜地!CLOT也经常会与一些其他大品牌生产合作产品,像LEVI'S,NIKE,PEPSI等品牌!",
-			shop:'ACU、JUICE',
-			src:'../static/images/assc.jpeg'
-	},
-	bapeIntro:{
-			name:'bape',
-			time:'2003年6月',
-			person:'NIGO',
-			story:"EDISON陈冠希2003年创办了自己的服装品牌CLOT，在上海,北京,香港等地开有Clot潮流店铺：ACU、JUICE，努力成为中国第一潮牌!EDISON近两年创办了自己的服装品牌CLOT,并自己参与服装的设计、用料等 各个方面,成为中国第一潮牌,并在世界上都有一定的影力.CLOT是一个LIFESTYLE的公司，创作服装，包括CLOT品牌服装以及在香港的 JUICE店铺、策划PARTY、帮助香港一些公司做consultant，例如NIKE、PEPSI…、更包括CLOT自己的音乐!现成员包括：陈冠 希、MC仁、陈奂仁、DJ Tommy、厨房仔、恭硕良等一起，CLOT是一个FAMILY，是一个不可分开的家庭,而他的店铺JUICE也成为香港游客的一旅游胜地!CLOT也经常会与一些其他大品牌生产合作产品,像LEVI'S,NIKE,PEPSI等品牌!",
-			shop:'ACU、JUICE',
-			src:'../static/images/bape.jpg'
+		home:{url:'home',name:'网站主页'},
+		news:{url:'news',name:'学校简介'},
+		collections:{url:'collections',name:'活动与动态'},
+		signup:{url:'download',name:'报名表下载'},
+		aboutus:{url:'aboutus',name:'关于我们'},
 	},
 	nowbrand:null,
-	news:[
-		{
-			src:'../static/images/news.jpg',
-			title:'篮球文化新基地，JORDAN 218 TIANHE正式开业',
-			time:'2016/12/13'
-		},
-		{
-			src:'../static/images/news2.jpg',
-			title:'潮流教父藤原浩做的鸡你吃吗？',
-			time:'2015/07/21'
-		},
-		{
-			src:'../static/images/news3.jpg',
-			title:'跨界发型屋！Edwin Watch Store × Barber shop...',
-			time:'2015/07/16'
-		},
-		{
-			src:'../static/images/news4.jpeg',
-			title:'广州人气潮所地图&1626联乘卡贴领取方法',
-			time:'2015/01/13'
-		},
-		{
-			src:'../static/images/news.jpg',
-			title:'篮球文化新基地，JORDAN 218 TIANHE正式开业',
-			time:'2016/12/13'
-		},
-		{
-			src:'../static/images/news2.jpg',
-			title:'潮流教父藤原浩做的鸡你吃吗？',
-			time:'2015/07/21'
-		},
-		{
-			src:'../static/images/news3.jpg',
-			title:'跨界发型屋！Edwin Watch Store × Barber shop...',
-			time:'2015/07/16'
-		},
-		{
-			src:'../static/images/news4.jpeg',
-			title:'广州人气潮所地图&1626联乘卡贴领取方法',
-			time:'2015/01/13'
-		},
-		{
-			src:'../static/images/news.jpg',
-			title:'篮球文化新基地，JORDAN 218 TIANHE正式开业',
-			time:'2016/12/13'
-		},
-		{
-			src:'../static/images/news2.jpg',
-			title:'潮流教父藤原浩做的鸡你吃吗？',
-			time:'2015/07/21'
-		},
-		{
-			src:'../static/images/news3.jpg',
-			title:'跨界发型屋！Edwin Watch Store × Barber shop...',
-			time:'2015/07/16'
-		},
-		{
-			src:'../static/images/news4.jpeg',
-			title:'广州人气潮所地图&1626联乘卡贴领取方法',
-			time:'2015/01/13'
-		},
-	],
 	goods:[
 	//商品信息
 		{
@@ -288,7 +187,6 @@ const state={
 	],
 	selectedItem:{},
 	sessionSelectedItem:{},
-	cart:[]
 }
 const mutations={
 	CHANGE_HW(state,obj){

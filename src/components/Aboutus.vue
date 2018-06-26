@@ -6,8 +6,8 @@
 			</li>
 		</ul>
 		<div class="article_right">
-			<h1 class="article_title">活动及动态</h1>
-			<div class="article_pic">
+			<h1 class="article_title">关于我们</h1>
+			<div v-html="aboutUs">
 			</div>
 		</div>
 	</div>	
@@ -18,12 +18,16 @@ import {mapGetters} from 'vuex'
 	export default {
 		data (){
 			return {
-				titles:['音乐比赛','考试招生','演出活动','最新动态'],
-				
+				titles:['关于我们'],
+				aboutUs:''
 			}
 		},
 		created(){
-			this.$store.dispatch('changeShow','news')
+			let that = this;
+			this.$http.get('../../static/index/关于我们.html').then(res => {  
+				console.log("文件数据为:" + res.body)
+				that.aboutUs = res.body;
+			})
 		},
 		computed:{
 			...mapGetters({
@@ -34,5 +38,4 @@ import {mapGetters} from 'vuex'
 	}
 </script>
 <style scoped>
-
 </style>

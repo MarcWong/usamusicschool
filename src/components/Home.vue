@@ -1,17 +1,8 @@
 <template>
   <div class="home">
-  	<aside class="home_aside" :style="{height:home_aside_height+'px'}">
- 		<h1 :style="{height:home_aside_height_margin+'px',lineHeight:home_aside_height_margin+'px'}">welcome</h1> 
- 		<ul class="home_aside_ul">
- 			<li  v-for="brand in brands" @click="changeShow(brand.name)">
- 				<router-link :to="'/home/'+brand.name" tag="img" :src="brand.src" :alt="brand.name" class="home_aside_ul_img"></router-link>
- 			</li>
- 		</ul>
- 	</aside>
   	<transition name="introduction">
   		<router-view></router-view>
  	</transition>
- 	
   </div>  
 </template>
 

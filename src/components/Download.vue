@@ -6,10 +6,17 @@
 			</li>
 		</ul>
 		<div class="article_right">
-			<h1 class="article_title">活动及动态</h1>
 			<div class="article_pic">
+                <a href="../../static/file/1-1FFQGH7.doc">2018学年报名表</a>
 			</div>
 		</div>
+		<!-- <ul>
+			<li v-for="(content,id) in contents" class="news_li" :key="id">
+				<router-link to="/newsarticle" tag="img" :src="content.src" class="news_img"></router-link>
+				<router-link to="/newsarticle" class="news_title">{{content.title}}</router-link>
+				<p class="news_p">{{content.time}}</p>
+			</li>
+		</ul> -->
 	</div>	
 </template>
 <script type="text/javascript">
@@ -18,7 +25,7 @@ import {mapGetters} from 'vuex'
 	export default {
 		data (){
 			return {
-				titles:['音乐比赛','考试招生','演出活动','最新动态'],
+				titles:['报名表下载'],
 				
 			}
 		},
@@ -34,5 +41,4 @@ import {mapGetters} from 'vuex'
 	}
 </script>
 <style scoped>
-
 </style>

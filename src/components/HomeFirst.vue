@@ -1,29 +1,60 @@
 <template>
 	<div class="home_first">
 		<div class="home_first_left" :style="{height:home_first_height+'px'}">
-			<h1 :style="{height:home_first_height_margin+'px',lineHeight:home_first_height_margin+'px'}">nigo&kaws</h1>
-			<router-link to="/collection" tag="img" src="../static/images/kaws.jpg" alt="kaws" class="kaws"></router-link>
+			<router-link to="https://www.oberlin.edu/conservatory">
+				<img alt="1" :src="'../static/school/加州艺术学院logo.png'" class="kaws"/>
+			</router-link>
+			<router-link to="https://sfcm.edu/">
+				<img alt="2" :src="'../static/school/旧金山音乐学院logo.png'" class="kaws"/>
+			</router-link>
+			<router-link to="https://www.msmnyc.edu">
+				<img alt="3" :src="'../static/school/曼哈顿音乐学院logo.jpg'" class="kaws"/>
+			</router-link>
+			<router-link to="https://www.oberlin.edu">
+				<img alt="4" :src="'../static/school/欧柏林音乐学院logo.jpg'" class="kaws"/>
+			</router-link>
+			<router-link to="http://peabody.jhu.edu/">
+				<img alt="5" :src="'../static/school/霍普金斯大学皮博蒂音乐学院logo.jpg'" class="kaws"/>
+			</router-link>
 		</div>
-		<div class="container" :style="{height:home_first_height+'px'}">
+		<div class="container">
 			<div class="wrapper" :style="{width:originalData.img_width+'px',height:originalData.img_height+'px',top:home_first_height_margin-20+'px'}" @mouseover="stop" @mouseout="play">
-	    	<div class="wrapper-content" :class="{wrapper_trans:isTrans}" :style="{width:originalData.img_width*(originalData.num+2)+'px',height:originalData.img_height+'px',left:-originalData.img_width+'px'}" ref="wrapperContent">
-	    		<img class="wrapper-content_img" alt="4" :src="'../static/images/home_4.jpg'" :style="{width:originalData.img_width+'px',height:originalData.img_height+'px'}"/>
-	    		<img class="wrapper-content_img" alt="1" :src="'../static/images/home_1.jpg'" :style="{width:originalData.img_width+'px',height:originalData.img_height+'px'}"/>
-	    		<img class="wrapper-content_img" alt="2" :src="'../static/images/home_2.jpg'" :style="{width:originalData.img_width+'px',height:originalData.img_height+'px'}"/>
-	    		<img class="wrapper-content_img" alt="3" :src="'../static/images/home_3.jpg'" :style="{width:originalData.img_width+'px',height:originalData.img_height+'px'}"/>
-	    		<img class="wrapper-content_img" alt="4" :src="'../static/images/home_4.jpg'" :style="{width:originalData.img_width+'px',height:originalData.img_height+'px'}"/>
-	    		<img class="wrapper-content_img" alt="1" :src="'../static/images/home_1.jpg'" :style="{width:originalData.img_width+'px',height:originalData.img_height+'px'}"/>
-	    	</div>
-	    	<div class="wrapper-buttons" :style="{left:(originalData.img_width-100)/2+'px'}">
-	    		<span :class="['wrapper-button',{'wrapper_on':index==1}]"  @click="turnTo(1)"></span>
-	    		<span :class="['wrapper-button',{'wrapper_on':index==2}]"  @click="turnTo(2)"></span>
-	    		<span :class="['wrapper-button',{'wrapper_on':index==3}]"  @click="turnTo(3)"></span>
-	    		<span :class="['wrapper-button',{'wrapper_on':index==4}]"  @click="turnTo(4)"></span>
-	    	</div>
+				
+				<router-link to="/news">
+				<div class="wrapper-content" :class="{wrapper_trans:isTrans}" :style="{width:originalData.img_width*(originalData.num+2)+'px',height:originalData.img_height+'px',left:-originalData.img_width+'px'}" ref="wrapperContent">
+					<div class="wrapper-content_img">
+						<p style="position:absolute;z-index:1000;margin-left:350px;">加州艺术学院</p>
+						<img alt="1" :src="'../static/school/加州艺术学院.png'" :style="{width:originalData.img_width+'px',height:originalData.img_height+'px'}"/>
+					</div>
+					<div class="wrapper-content_img">
+						<p style="position:absolute;z-index:1000;margin-left:350px;">旧金山音乐学院</p>
+						<img alt="2" :src="'../static/school/旧金山音乐学院.jpg'" :style="{width:originalData.img_width+'px',height:originalData.img_height+'px'}"/>
+					</div>
+					<div class="wrapper-content_img">
+						<p style="position:absolute;z-index:1000;margin-left:350px;">曼哈顿音乐学院</p>
+						<img alt="3" :src="'../static/school/曼哈顿音乐学院.jpg'" :style="{width:originalData.img_width+'px',height:originalData.img_height+'px'}"/>
+					</div>
+					<div class="wrapper-content_img">
+						<p style="position:absolute;z-index:1000;margin-left:350px;">欧柏林音乐学院</p>
+						<img alt="4" :src="'../static/school/欧柏林音乐学院.jpg'" :style="{width:originalData.img_width+'px',height:originalData.img_height+'px'}"/>
+					</div>
+					<div class="wrapper-content_img">
+						<p style="position:absolute;z-index:1000;margin-left:350px;">霍普金斯大学皮博蒂音乐学院</p>
+						<img alt="5" :src="'../static/school/霍普金斯大学皮博蒂音乐学院.jpg'" :style="{width:originalData.img_width+'px',height:originalData.img_height+'px'}"/>
+					</div>
+				</div>
+				</router-link>
+				<div class="wrapper-buttons" :style="{left:(originalData.img_width-100)/2+'px'}">
+					<span :class="['wrapper-button',{'wrapper_on':index==1}]"  @click="turnTo(1)"></span>
+					<span :class="['wrapper-button',{'wrapper_on':index==2}]"  @click="turnTo(2)"></span>
+					<span :class="['wrapper-button',{'wrapper_on':index==3}]"  @click="turnTo(3)"></span>
+					<span :class="['wrapper-button',{'wrapper_on':index==4}]"  @click="turnTo(4)"></span>
+					<span :class="['wrapper-button',{'wrapper_on':index==5}]"  @click="turnTo(5)"></span>
+				</div>
 
-	    	<a href="javascript:;" class="wrapper-arrow wrapper-prev" :style="{marginTop:-originalData.btn_width/2+'px'}" @click="prev"></a>
-	    	<a href="javascript:;" class="wrapper-arrow wrapper-next" :style="{marginTop:-originalData.btn_width/2+'px'}" @click="next"></a>
-    	</div>
+				<a href="javascript:;" class="wrapper-arrow wrapper-prev" :style="{marginTop:-originalData.btn_width/2+'px'}" @click="prev"></a>
+				<a href="javascript:;" class="wrapper-arrow wrapper-next" :style="{marginTop:-originalData.btn_width/2+'px'}" @click="next"></a>
+			</div>
 		</div>
 	</div>
 </template>
@@ -55,7 +86,7 @@ import {mapGetters} from 'vuex'
 			},
 			home_first_height:function(){
 				
-				var a= parseInt(this.hw.h)-200
+				var a= parseInt(this.hw.h)-400
 				return a<389?389:a
 			},
 			home_first_height_margin:function(){
@@ -68,10 +99,9 @@ import {mapGetters} from 'vuex'
     					return 
     				}
     				this.clickdelay=true
-    				if(this.index==this.originalData.num){
+    				if(this.index===this.originalData.num){
     					this.index=1
     				}else{
-    					
     					this.index+=1
     				}
     				this.animate(this.originalData.img_width)
@@ -82,7 +112,7 @@ import {mapGetters} from 'vuex'
     					return 
     				}
     				this.clickdelay=true
-    				if(this.index==1){
+    				if(this.index===1){
     					this.index=this.originalData.num
     				}else{
     					this.index-=1
@@ -165,18 +195,18 @@ import {mapGetters} from 'vuex'
 	}
 </script>
 <style scoped>
-	.home_first{overflow: hidden;margin-right: 400px;}
+	.home_first{overflow: hidden;margin-right:400px;}
 	.home_first:after{display: block;content:"";width: 0;height: 0;clear:both;}
-	.home_first_left{float:left;width: 400px;text-align: center;background: #00BC9B}
-	.home_first_left h1{text-align: center;font-family: TrashHand;font-size: 32px;
+	.home_first_left{float:left;margin-top:100px;width: 400px;text-align: center;}
+	.home_first_left h1{text-align: center;font-family: TrashHand;font-size: 22px;
 color:darkslateblue;}
-	.kaws{border: none;height: 300px;height: 300px}
-	.container{margin-left: 400px;}
+	.kaws{border: none;height: 80px}
+	.container{margin-left: 400px;margin-top:100px}
 	
 	 .wrapper{position: relative;overflow: hidden;margin: auto}
     .wrapper-content{position: absolute;left: 0;z-index: 1;}
     .wrapper-content_img{border: none;outline:none;float: left}
-    .wrapper-buttons{position: absolute;width: 100px;height: 20px;text-align: center;bottom: 3px;z-index: 2;}
+    .wrapper-buttons{position: absolute;width: 150px;height: 20px;text-align: center;bottom: 3px;z-index: 2;}
     .wrapper-button{float: left;width: 20px;height: 20px;border-radius: 10px;background: lightblue;margin: 0 2.5px;cursor: pointer;}
    .wrapper-arrow{position: absolute;width: 40px;height:40px;cursor: pointer;display: none;top:50%;z-index: 2; }
   

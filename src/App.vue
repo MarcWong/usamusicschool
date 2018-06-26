@@ -1,29 +1,28 @@
 <template>
   <div id="app" >
     <header>
-    <div class="login_top">
-      <ul class="login_nav">
-        <li><router-link to="/cart">购物车 ({{cart.length}})</router-link></li>
-        <li @click="changeLoginway('login')"><router-link to="/login"  class="login">Login</router-link></li>
-        <li @click="changeLoginway('register')" ><router-link to="/login"class="register">Register</router-link></li>
-      </ul>
+    <div class="login_top flex-justify_start">
+      <img src="../static/images/logo.gif">
+      <div style="padding-left:10px;color:white;">
+        <h1>
+        <router-link to="/home">美国音乐学院联盟</router-link>
+        </h1>
+      </div>
+      <div style="padding-left:100px;color:white;">
+        <p>联系电话</p>
+        <p>010-64805023  王老师，刘老师</p>
+        <p>Email:</p>
+        <p>chinaaudition@163.com</p>
+      </div>
     </div>
     <div class="nav">
       <ul class="left_nav">
         <!-- left_navs是通过mapgetters来的数据，在index.js中 -->
-        <li :class="{bg:show===left_nav_value}" v-for="left_nav_value in left_navs">
-            <router-link :to="'/'+left_nav_value" class="nav_a">{{left_nav_value.toUpperCase()}}</router-link>
+        <li :class="{bg:show===left_nav_value}" v-for="(left_nav_value,id) in left_navs" :key="id">
+            <router-link :to="'/'+left_nav_value.url" class="nav_a">{{left_nav_value.name}}</router-link>
         </li>
       </ul>
-      <ul class="right_nav">
-        <!-- brands是通过mapgetters来的数据，在index.js中 -->
-        <li :class="{bg:show===brand.name}" v-for="brand in brands">
-          <router-link :to="'/home/'+brand.name" class="nav_a">{{brand.name.toUpperCase()}}</router-link>
-        </li>
-      </ul>
-      <h1 class="theme">
-        <router-link to="/home">vogue</router-link>
-      </h1>
+      
     </div>
     </header>
     <section>
@@ -32,25 +31,21 @@
       </transition>
     </section>
     <footer>
-      <strong><a href="https://github.com/UNDERCOVERj/vogue" target="_blank">auther:UNDERCOVERj</a></strong>
-      <ul class="bottom">
-        <li v-for="item in items" class="items">
-          <h1><router-link to='/home'>{{item.title}}</router-link></h1>
+      <ul>
+        <li v-for="item in items" class="flex-justify_start" style="margin-left:10vw;">
+          <h2 style="width:5vw;margin-right:5vw">{{item.title}}</h2>
           <ul>
-            <li v-for="content in item.contents" class="item"><router-link to='/home'>{{content}}</router-link></li>
+            <li v-for="content in item.contents" class="item">{{content}}</li>
           </ul>
         </li>
       </ul>
-      <p class="payment">
-        <span>we accept:</span>
-        <img :src="'../static/images/pay_1.jpg'" alt="pay" />
-      </p>
+      <p class="flex-justify_center" style="font-size:10px;">2011 © Usaschoolsofmusic | All Rights Reserved</p>
     </footer>
-    <transition name="scroll">
+    <!-- <transition name="scroll">
       <p v-if="scroll" class="scroll" @click="scrolltoTop">
         <img :src="'../static/images/scroll.jpg'" alt="scroll"/>
       </p>
-    </transition>
+    </transition> -->
     
   </div>
 </template>
@@ -70,7 +65,6 @@ export default {
     ...mapGetters({
       show:'getShow',
       items:'getFootItems',
-      cart:'getCart',
       brands:'getBrands',
       left_navs:'getLeft_nav'
     })
@@ -159,33 +153,26 @@ export default {
       body{margin:0px;width: 100% ;font-family: "Segoe UI","Lucida Grande",Helvetica,Arial,"Microsoft YaHei",FreeSans,Arimo,"Droid Sans","wenquanyi micro hei","Hiragino Sans GB","Hiragino Sans GB W3",FontAwesome,sans-serif;font-size:16px;}
       input{text-shadow: none}
       #app{width:100%;}
-      header{height: 120px;min-width: 1150px}
-      .login_top{background: #3d444c;height: 30px;}
-      .login_nav{float:right;margin-right: 0}
-      .login_nav li{display: inline-block;padding: 3px 3px;}
-      .login_nav li a{color:#fff;}
-      .login_nav li:nth-child(2){padding-right: 6px;border-right: 2px solid #fff;}
-      .login_nav .login{cursor: pointer}
-      .login_nav .register{cursor: pointer}
-      .login_nav .login:hover,.login_nav .register:hover{text-decoration: underline;}
+      header{height: 10vh;min-width: 750px}
+      .login_top{background: #000;}
       .left_nav{float:left;margin-left: 15px}
-      .left_nav li,.right_nav li{display: inline-block;text-align: center;height: 90px;line-height: 90px;font-size: 20px;font-family: verdana;transition: all .3s ease-in-out;cursor: pointer}
+      .left_nav li,.right_nav li{display: inline-block;text-align: center;height: 60px;line-height: 60px;font-size: 20px;font-family: verdana;transition: all .3s ease-in-out;cursor: pointer}
       .left_nav li:hover{background: #00BC9B}
       .right_nav{float:right;margin-right: 15px}
       .right_nav li:hover{background: #00BC9B}
-      .nav_a{display: inline-block;height: 90px;padding: 0 15px;}
+      .nav_a{display: inline-block;height: 60px;padding: 0 15px;}
       .nav{width: 100%;overflow: hidden;}
-      header h1{width: 200px;height: 90px;text-align: center;line-height: 90px;font-size: 32px;font-family: verdana;cursor: pointer;transition: all .5s ease;margin: 0 auto}
-      header h1:hover{font-size: 48px}
-      footer{height: 72px;background: #3d444c;width: 100%;min-width: 1150px;padding-top: 8px;position: relative;color:#a9b8ca;}
+      header h1{width: 200px;text-align: center;line-height: 60px;font-size: 24px;font-family: verdana; margin: 0 auto}
+      section{min-height: 77vh;}
+      footer{min-height: 13vh;background: #3d444c;width: 100%;min-width: 1150px;padding-top: 8px;position: relative;color:#a9b8ca;}
       .bg{background: #00BC9B;}
       footer .items{display: inline-block;padding: 0 2px;}
       footer strong {position: absolute;left: 0;top:27.5px;}
       footer strong a{text-decoration: underline;color:#a9b8ca;}
-      footer .item a{color:#a9b8ca;font-size: 12px;}
       footer ul{text-align: center;}
       footer h1{text-decoration: underline;}
       footer h1 a{color:#fff}
+      .item{font-size: 12px;}
       footer .item:hover>a{text-decoration: underline;color:#08c;}  
       footer .payment{position: absolute;right:0;top: 27.5px}
       footer .payment span{display: inline-block;vertical-align: top;height: 22px;line-height: 22px}
