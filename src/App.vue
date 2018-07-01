@@ -153,7 +153,7 @@ export default {
       body{margin:0px;width: 100% ;font-family: "Segoe UI","Lucida Grande",Helvetica,Arial,"Microsoft YaHei",FreeSans,Arimo,"Droid Sans","wenquanyi micro hei","Hiragino Sans GB","Hiragino Sans GB W3",FontAwesome,sans-serif;font-size:16px;}
       input{text-shadow: none}
       #app{width:100%;}
-      header{height: 10vh;min-width: 750px}
+      header{height: 10vh;min-width: 1150px;width:100%}
       .login_top{background: #000;}
       .left_nav{float:left;margin-left: 15px}
       .left_nav li,.right_nav li{display: inline-block;text-align: center;height: 60px;line-height: 60px;font-size: 20px;font-family: verdana;transition: all .3s ease-in-out;cursor: pointer}
@@ -163,7 +163,7 @@ export default {
       .nav_a{display: inline-block;height: 60px;padding: 0 15px;}
       .nav{width: 100%;overflow: hidden;}
       header h1{width: 200px;text-align: center;line-height: 60px;font-size: 24px;font-family: verdana; margin: 0 auto}
-      section{min-height: 77vh;}
+      section{min-height: 77vh;width:100%;}
       footer{min-height: 13vh;background: #3d444c;width: 100%;min-width: 1150px;padding-top: 8px;position: relative;color:#a9b8ca;}
       .bg{background: #00BC9B;}
       footer .items{display: inline-block;padding: 0 2px;}
