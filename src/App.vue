@@ -32,10 +32,10 @@
     </section>
     <footer>
       <ul>
-        <li v-for="item in items" class="flex-justify_start" style="margin-left:10vw;">
+        <li v-for="item in items" :key="item.id" class="flex-justify_start" style="margin-left:10vw;">
           <h2 style="width:5vw;margin-right:5vw">{{item.title}}</h2>
           <ul>
-            <li v-for="content in item.contents" class="item">{{content}}</li>
+            <li v-for="content in item.contents" :key="content.id" class="item">{{content}}</li>
           </ul>
         </li>
       </ul>
@@ -63,6 +63,7 @@ export default {
   },
   computed:{
     ...mapGetters({
+      basicUrl:'getBasicUrl',
       show:'getShow',
       items:'getFootItems',
       brands:'getBrands',

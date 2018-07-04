@@ -1,49 +1,64 @@
 <template>
 	<div class="home_first">
 		<div class="home_first_left" :style="{height:home_first_height+'px'}">
-			<router-link to="https://www.oberlin.edu/conservatory">
+			<a href="https://www.oberlin.edu/conservatory">
 				<img alt="1" :src="'../static/school/加州艺术学院logo.png'" class="kaws"/>
-			</router-link>
-			<router-link to="https://sfcm.edu/">
+			</a>
+			<a href="https://sfcm.edu/">
 				<img alt="2" :src="'../static/school/旧金山音乐学院logo.png'" class="kaws"/>
-			</router-link>
-			<router-link to="https://www.msmnyc.edu">
+			</a>
+			<a href="https://www.msmnyc.edu">
 				<img alt="3" :src="'../static/school/曼哈顿音乐学院logo.jpg'" class="kaws"/>
-			</router-link>
-			<router-link to="https://www.oberlin.edu">
+			</a>
+			<a href="https://www.oberlin.edu">
 				<img alt="4" :src="'../static/school/欧柏林音乐学院logo.jpg'" class="kaws"/>
-			</router-link>
-			<router-link to="http://peabody.jhu.edu/">
+			</a>
+			<a href="http://peabody.jhu.edu/">
 				<img alt="5" :src="'../static/school/霍普金斯大学皮博蒂音乐学院logo.jpg'" class="kaws"/>
-			</router-link>
+			</a>
 		</div>
 		<div class="container">
 			<div class="wrapper" :style="{width:originalData.img_width+'px',height:originalData.img_height+'px',top:home_first_height_margin-20+'px'}" @mouseover="stop" @mouseout="play">
-				
-				<router-link to="/news">
 				<div class="wrapper-content" :class="{wrapper_trans:isTrans}" :style="{width:originalData.img_width*(originalData.num+2)+'px',height:originalData.img_height+'px',left:-originalData.img_width+'px'}" ref="wrapperContent">
+					
+
+					<router-link to="/news/3">
 					<div class="wrapper-content_img">
-						<p style="position:absolute;z-index:1000;margin-left:350px;">加州艺术学院</p>
-						<img alt="1" :src="'../static/school/加州艺术学院.png'" :style="{width:originalData.img_width+'px',height:originalData.img_height+'px'}"/>
+						<p style="position:absolute;z-index:1000;margin-left:0px;">旧金山音乐学院</p>
+						<img alt="3" :src="'../static/school/旧金山音乐学院.jpg'" :style="{width:originalData.img_width+'px',height:originalData.img_height+'px'}"/>
 					</div>
+					</router-link>
+
+					<router-link to="/news/2">
 					<div class="wrapper-content_img">
-						<p style="position:absolute;z-index:1000;margin-left:350px;">旧金山音乐学院</p>
-						<img alt="2" :src="'../static/school/旧金山音乐学院.jpg'" :style="{width:originalData.img_width+'px',height:originalData.img_height+'px'}"/>
+						<p style="position:absolute;z-index:1000;margin-left:0px;">曼哈顿音乐学院</p>
+						<img alt="2" :src="'../static/school/曼哈顿音乐学院.jpg'" :style="{width:originalData.img_width+'px',height:originalData.img_height+'px'}"/>
 					</div>
+					</router-link>
+
+					<router-link to="/news/1">
 					<div class="wrapper-content_img">
-						<p style="position:absolute;z-index:1000;margin-left:350px;">曼哈顿音乐学院</p>
-						<img alt="3" :src="'../static/school/曼哈顿音乐学院.jpg'" :style="{width:originalData.img_width+'px',height:originalData.img_height+'px'}"/>
+						<p style="position:absolute;z-index:1000;margin-left:0px;">欧柏林音乐学院</p>
+						<img alt="1" :src="'../static/school/欧柏林音乐学院.jpg'" :style="{width:originalData.img_width+'px',height:originalData.img_height+'px'}"/>
 					</div>
+					</router-link>
+
+					<router-link to="/news/5">
 					<div class="wrapper-content_img">
-						<p style="position:absolute;z-index:1000;margin-left:350px;">欧柏林音乐学院</p>
-						<img alt="4" :src="'../static/school/欧柏林音乐学院.jpg'" :style="{width:originalData.img_width+'px',height:originalData.img_height+'px'}"/>
-					</div>
-					<div class="wrapper-content_img">
-						<p style="position:absolute;z-index:1000;margin-left:350px;">霍普金斯大学皮博蒂音乐学院</p>
+						<p style="position:absolute;z-index:1000;margin-left:0px;">霍普金斯大学皮博蒂音乐学院</p>
 						<img alt="5" :src="'../static/school/霍普金斯大学皮博蒂音乐学院.jpg'" :style="{width:originalData.img_width+'px',height:originalData.img_height+'px'}"/>
 					</div>
+					</router-link>
+
+					<router-link to="/news/4">
+					<div class="wrapper-content_img">
+						<p style="position:absolute;z-index:1000;margin-left:0px;">加州艺术学院</p>
+						<img alt="4" :src="'../static/school/加州艺术学院.png'" :style="{width:originalData.img_width+'px',height:originalData.img_height+'px'}"/>
+					</div>
+					</router-link>
+
 				</div>
-				</router-link>
+				
 				<div class="wrapper-buttons" :style="{left:(originalData.img_width-100)/2+'px'}">
 					<span :class="['wrapper-button',{'wrapper_on':index==1}]"  @click="turnTo(1)"></span>
 					<span :class="['wrapper-button',{'wrapper_on':index==2}]"  @click="turnTo(2)"></span>

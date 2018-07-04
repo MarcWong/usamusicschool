@@ -23,7 +23,7 @@ const router=new VueRouter({
 		]	
 	},
 	{
-		path:'/news',component:News
+		path:'/news/:id',component:News
 	},
 	{
 		path:'/collections',component:Collection

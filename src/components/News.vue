@@ -1,13 +1,13 @@
 <template>
 	<div class="news flex">
 		<ul>
-			<li v-for="(title,id) in titles" :key="id">
-				<p @click="changeContent" class="news_p">{{title}}</p>
+			<li v-for="school in schools" :key="school.id">
+				<p @click="getSchool(school.id)" class="news_p">{{school.name}}</p>
 			</li>
 		</ul>
 		<div class="article_right">
-			<h1 class="article_title">{{selectTitle}}</h1>
-			<div v-html="selectContent"></div>
+			<h1 class="article_title">{{selectSchool.name}}</h1>
+			<div v-html="selectSchool.content"></div>
 		</div>
 		<!-- <ul>
 			<li v-for="(content,id) in contents" class="news_li" :key="id">
@@ -19,31 +19,54 @@
 	</div>	
 </template>
 <script type="text/javascript">
+import axios from 'axios'
+import {mapGetters} from 'vuex'
 import '../assets/css/custom.css'
+
 export default {
 	data (){
 		return {
-			titles:['欧柏林音乐学院','加州艺术学院','曼哈顿音乐学院','霍普金斯大学皮博蒂音乐学院','旧金山音乐学院'],
-			selectTitle:'欧柏林学院',
-			selectContent:''
+			schools:[],
+			selectSchool:{},
+			selectSchoolId:'',
 		}
 	},
+	computed:{
+    ...mapGetters({
+      basicUrl:'getBasicUrl',
+    })
+  },
 	created(){
 		let that = this;
-		that.selectTitle = '欧柏林音乐学院';
-		this.$http.get('../../static/school/欧柏林音乐学院.html').then(res => {  
-			console.log("文件数据为:" + res.body)
-			that.selectContent = res.body;
-		})
+		console.log(that.basicUrl);
+		axios({
+          method: 'get',
+          url: that.basicUrl + '/school/list/'
+        })
+          .then(function (res) {
+			  console.log(res.data)
+			  that.schools = res.data
+          })
+          .catch(function(error){
+            console.log('Exptions:',error)
+		  })
+
+		that.getSchool(that.$route.params.id);
 	},
 	methods:{
-		changeContent(e){
-			console.log(e.target.innerHTML)
+		getSchool(id){
 			let that = this;
-			that.selectTitle = e.target.innerHTML;
-			this.$http.get('../../static/school/' + e.target.innerHTML +'.html').then(res => {  
-				console.log("文件数据为:" + res.body)
-				that.selectContent = res.body	
+			console.log(id)
+			axios({
+				method: 'get',
+				url: that.basicUrl + '/school/' + id + '/'
+			})
+			.then(function (res) {
+				console.log(res.data)
+				that.selectSchool = res.data
+			})
+			.catch(function(error){
+				console.log('Exptions:',error)
 			})
 		}
 	}
