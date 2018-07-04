@@ -201,7 +201,6 @@ import {mapGetters} from 'vuex'
                this.play()
     		},
 		created(){
-			this.$store.dispatch('changeShow','home')
             
 		},
         destroyed(){

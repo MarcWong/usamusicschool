@@ -23,12 +23,9 @@ import {mapGetters} from 'vuex'
 			}
 		},
 		created(){
-			this.$store.dispatch('changeShow','news')
 		},
 		computed:{
-			...mapGetters({
-				contents:'getNews'
-			})
+
 		}
 
 	}

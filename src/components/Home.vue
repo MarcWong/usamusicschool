@@ -17,7 +17,6 @@ export default {
 	computed:{
 		...mapGetters({
 			hw:'getHW',
-			brands:'getBrands'
 		}),
 		home_aside_height:function(){
 			var a= parseInt(this.hw.h)-200;
@@ -28,9 +27,6 @@ export default {
 		}
 	},
 	methods:{
-		changeShow(type){
-			this.$store.dispatch('changeShow',type)
-		}
 	}
 }
 </script>

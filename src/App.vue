@@ -9,16 +9,16 @@
         </h1>
       </div>
       <div style="padding-left:100px;color:white;">
-        <p>联系电话</p>
-        <p>010-64805023  王老师，刘老师</p>
+        <p>联系方式</p>
+        <p>{{basicInfo.phone}} &nbsp; {{basicInfo.contacts}}</p>
         <p>Email:</p>
-        <p>chinaaudition@163.com</p>
+        <p>{{basicInfo.email}} </p>
       </div>
     </div>
     <div class="nav">
       <ul class="left_nav">
         <!-- left_navs是通过mapgetters来的数据，在index.js中 -->
-        <li :class="{bg:show===left_nav_value}" v-for="(left_nav_value,id) in left_navs" :key="id">
+        <li :class="left_nav_value" v-for="(left_nav_value,id) in left_navs" :key="id">
             <router-link :to="'/'+left_nav_value.url" class="nav_a">{{left_nav_value.name}}</router-link>
         </li>
       </ul>
@@ -32,10 +32,22 @@
     </section>
     <footer>
       <ul>
-        <li v-for="item in items" :key="item.id" class="flex-justify_start" style="margin-left:10vw;">
-          <h2 style="width:5vw;margin-right:5vw">{{item.title}}</h2>
+        <li class="flex-justify_start" style="margin-left:10vw;">
+          <h2 style="width:5vw;margin-right:5vw">联系方式</h2>
           <ul>
-            <li v-for="content in item.contents" :key="content.id" class="item">{{content}}</li>
+            <li class="item">{{basicInfo.phone}} &nbsp; {{basicInfo.contacts}}</li>
+          </ul>
+        </li>
+        <li class="flex-justify_start" style="margin-left:10vw;">
+          <h2 style="width:5vw;margin-right:5vw">地址</h2>
+          <ul>
+            <li class="item">{{basicInfo.address}} {{basicInfo.zip_code}} {{basicInfo.other_info}}</li>
+          </ul>
+        </li>
+        <li class="flex-justify_start" style="margin-left:10vw;">
+          <h2 style="width:5vw;margin-right:5vw">Email</h2>
+          <ul>
+            <li class="item">{{basicInfo.email}}</li>
           </ul>
         </li>
       </ul>
@@ -51,7 +63,8 @@
 </template>
 
 <script>
-import {mapGetters} from 'vuex'
+import {mapGetters,mapActions} from 'vuex'
+import axios from 'axios'
 export default {
 
   data () {
@@ -64,10 +77,8 @@ export default {
   computed:{
     ...mapGetters({
       basicUrl:'getBasicUrl',
-      show:'getShow',
-      items:'getFootItems',
-      brands:'getBrands',
-      left_navs:'getLeft_nav'
+      left_navs:'getLeft_nav',
+      basicInfo:'getBasicInfo'
     })
   },
   methods:{
@@ -103,15 +114,26 @@ export default {
       }
       
     },
-    changeLoginway(type){
-        this.$store.dispatch('changeLoginway',type)
-    }
   },
    created(){
       var self=this;
-      var a=1
+
+      axios({
+          method: 'get',
+          url: self.basicUrl + '/'
+      })
+      .then(function (res) {
+          console.log(res.data)
+          self.$store.dispatch('change_info',res.data)
+      })
+      .catch(function(error){
+          console.log('Exptions:',error)
+      })
+
+      
+      
       window.onload=()=>{
-        this.$store.dispatch('change_hw',{
+        self.$store.dispatch('change_hw',{
           h:document.documentElement.clientHeight||document.body.clientHeight,
           w:document.documentElement.clientWidth||document.body.clientWidth
         })
@@ -129,14 +151,12 @@ export default {
         },100)
       }
       window.onscroll=()=>{
-        
          var scrollTop = document.documentElement.scrollTop || window.pageYOffset || document.body.scrollTop;
             if(scrollTop>10){
               this.scroll=true;
             }else{
               this.scroll=false;
             }
-        
       }
    }
 }
