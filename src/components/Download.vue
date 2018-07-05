@@ -1,7 +1,7 @@
 <template>
 	<div class="news flex">
 		<ul>
-			<li v-for="(title,id) in titles" :key="id">
+			<li v-for="(title,id) in titles" :key="id" class="column_left">
 				<a href="javascript:void(0)"><p class="news_p">{{title}}</p></a>
 			</li>
 		</ul>
@@ -30,6 +30,7 @@ import {mapGetters} from 'vuex'
 			}
 		},
 		created(){
+			this.$store.dispatch('changeShow','download')
 		},
 		computed:{
 		}

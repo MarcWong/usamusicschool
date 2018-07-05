@@ -1,7 +1,7 @@
 <template>
 	<div class="news flex">
 		<ul>
-			<li v-for="school in schools" :key="school.id">
+			<li v-for="school in schools" :key="school.id" class="column_left">
 				<p @click="getSchool(school.id)" class="news_p">{{school.name}}</p>
 			</li>
 		</ul>
@@ -51,7 +51,8 @@ export default {
             console.log('Exptions:',error)
 		  })
 
-		that.getSchool(that.$route.params.id);
+		this.getSchool(that.$route.params.id);
+		this.$store.dispatch('changeShow','news')
 	},
 	methods:{
 		getSchool(id){

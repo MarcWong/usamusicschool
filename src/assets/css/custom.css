@@ -162,5 +162,6 @@ color: #666;
 .news_li{display: inline-block;border: 1px solid #ccc;width: 226px;margin: 10px;box-sizing: border-box;height: 243px;vertical-align: top }
 .news_img{max-width: 100%;height: auto;cursor: pointer;}
 .news_title{word-wrap: break-word;word-break: break-all;color: #111;font-size: 16px;font-weight: bold;margin: 16px 0;display: inline-block;line-height: 20px;height: 40px;}
-.news_p{white-space: nowrap; line-height: 16px;font: 14px;color:#999;text-align: left;padding-bottom: 5px;margin-bottom: 0}
+.news_p{cursor:pointer;white-space: nowrap; line-height: 16px;font: 14px;color:#999;text-align: left;padding-bottom: 5px;margin-bottom: 0}
 .article_right{margin:0 24px;min-width: 80%;overflow: hidden;}
+.column_left{margin:5px;}

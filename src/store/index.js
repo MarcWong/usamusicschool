@@ -16,19 +16,27 @@ const state={
 	clientheight:0,
 	clientwidth:0,
 	info:{
+		phone:'010-64805023',
+		address:'北京市朝阳区湖景东路11号新奥购物中心H2-20-01',
+		email:'chinaaudition@163.com',
+		other_info:'北京乐禾子国际钢琴艺术中心',
+		zip_code:'100101',
 	},
 	left_nav:{
-		home:{url:'home',name:'网站主页'},
-		news:{url:'news/1',name:'学校简介'},
-		collections:{url:'collections',name:'活动与动态'},
-		signup:{url:'download',name:'报名表下载'},
-		aboutus:{url:'aboutus',name:'关于我们'},
+		home:{url:'home',name:'网站主页',state:'home'},
+		news:{url:'news/1',name:'学校简介',state:'news'},
+		collections:{url:'collections',name:'活动与动态',state:'collections'},
+		signup:{url:'download',name:'报名表下载',state:'download'},
+		aboutus:{url:'aboutus',name:'关于我们',state:'aboutus'},
 	},
 }
 const mutations={
 	CHANGE_HW(state,obj){
 		state.clientwidth=obj.w;
 		state.clientheight=obj.h;
+	},
+	CHANGE_SHOW(state,type){
+		state.show=type
 	},
 	CHANGE_INFO(state,obj){
 		state.info.contacts=obj.contacts;
@@ -52,6 +60,9 @@ const mutations={
 	},
 }
 const actions={
+	changeShow({commit},type){
+		commit('CHANGE_SHOW',type)
+	},
 	change_hw({commit},obj){
 		commit('CHANGE_HW',obj)
 	},
@@ -74,6 +85,9 @@ const getters={
 	},
 	getBasicInfo:function(state){
 		return state.info
+	},
+	getShow:function(state){
+		return state.show
 	},
 }
 export default new Vuex.Store({

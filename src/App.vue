@@ -18,7 +18,7 @@
     <div class="nav">
       <ul class="left_nav">
         <!-- left_navs是通过mapgetters来的数据，在index.js中 -->
-        <li :class="left_nav_value" v-for="(left_nav_value,id) in left_navs" :key="id">
+        <li :class="{bg:show===left_nav_value.state}" v-for="(left_nav_value,id) in left_navs" :key="id">
             <router-link :to="'/'+left_nav_value.url" class="nav_a">{{left_nav_value.name}}</router-link>
         </li>
       </ul>
@@ -76,6 +76,7 @@ export default {
   },
   computed:{
     ...mapGetters({
+      show:'getShow',
       basicUrl:'getBasicUrl',
       left_navs:'getLeft_nav',
       basicInfo:'getBasicInfo'
@@ -117,7 +118,6 @@ export default {
   },
    created(){
       var self=this;
-
       axios({
           method: 'get',
           url: self.basicUrl + '/'
@@ -129,9 +129,6 @@ export default {
       .catch(function(error){
           console.log('Exptions:',error)
       })
-
-      
-      
       window.onload=()=>{
         self.$store.dispatch('change_hw',{
           h:document.documentElement.clientHeight||document.body.clientHeight,
@@ -176,17 +173,15 @@ export default {
       #app{width:100%;}
       header{height: 10vh;min-width: 1150px;width:100%}
       .login_top{background: #000;}
-      .left_nav{float:left;margin-left: 15px}
+      .left_nav{float:left;margin-left: 0px;}
       .left_nav li,.right_nav li{display: inline-block;text-align: center;height: 60px;line-height: 60px;font-size: 20px;font-family: verdana;transition: all .3s ease-in-out;cursor: pointer}
-      .left_nav li:hover{background: #00BC9B}
-      .right_nav{float:right;margin-right: 15px}
-      .right_nav li:hover{background: #00BC9B}
+      .left_nav li:hover{color:black;background: white}
       .nav_a{display: inline-block;height: 60px;padding: 0 15px;}
-      .nav{width: 100%;overflow: hidden;}
+      .nav{color:#777;width: 100%;overflow: hidden;z-index: 10;background: #eee}
       header h1{width: 200px;text-align: center;line-height: 60px;font-size: 24px;font-family: verdana; margin: 0 auto}
       section{min-height: 77vh;width:100%;}
       footer{min-height: 13vh;background: #3d444c;width: 100%;min-width: 1150px;padding-top: 8px;position: relative;color:#a9b8ca;}
-      .bg{background: #00BC9B;}
+      .bg{background: white;color:black;}
       footer .items{display: inline-block;padding: 0 2px;}
       footer strong {position: absolute;left: 0;top:27.5px;}
       footer strong a{text-decoration: underline;color:#a9b8ca;}
