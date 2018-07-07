@@ -40,16 +40,16 @@ export default {
 		let that = this;
 		console.log(that.basicUrl);
 		axios({
-          method: 'get',
-          url: that.basicUrl + '/school/list/'
-        })
-          .then(function (res) {
+				method: 'get',
+				url: that.basicUrl + '/school/list/'
+		})
+			.then(function (res) {
 			  console.log(res.data)
 			  that.schools = res.data
-          })
-          .catch(function(error){
-            console.log('Exptions:',error)
-		  })
+			})
+			.catch(function(error){
+				console.log('Exptions:',error)
+		})
 
 		this.getSchool(that.$route.params.id);
 		this.$store.dispatch('changeShow','news')
