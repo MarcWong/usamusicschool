@@ -24,8 +24,8 @@ const state={
 	},
 	left_nav:{
 		home:{url:'home',name:'网站主页',state:'home'},
-		news:{url:'news/1',name:'学校简介',state:'news'},
-		collections:{url:'collections',name:'活动与动态',state:'collections'},
+		school:{url:'school/1',name:'学校简介',state:'school'},
+		collections:{url:'news',name:'活动与动态',state:'news'},
 		signup:{url:'download',name:'报名表下载',state:'download'},
 		aboutus:{url:'aboutus',name:'关于我们',state:'aboutus'},
 	},

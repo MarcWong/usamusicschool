@@ -21,7 +21,7 @@
 			<div class="wrapper" :style="{width:originalData.img_width+'px',height:originalData.img_height-20+'px',top:home_first_height_margin+'px'}" @mouseover="stop" @mouseout="play">
 				<div class="wrapper-content" :class="{wrapper_trans:isTrans}" :style="{width:originalData.img_width*(originalData.num+2)+'px',height:originalData.img_height+20+'px',left:-originalData.img_width+'px'}" ref="wrapperContent">
 
-					<router-link to="/news/1">
+					<router-link to="/school/1">
 					<div class="wrapper-content_img">
 						<div style="background-color:white;width:350px;height:24px;text-align:center;">
 						<p style="margin-left:119px;position:absolute;z-index:1000;">欧柏林音乐学院</p>
@@ -30,7 +30,7 @@
 					</div>
 					</router-link>
 
-					<router-link to="/news/2">
+					<router-link to="/school/2">
 					<div class="wrapper-content_img">
 						<div style="background-color:white;width:350px;height:24px;text-align:center;">
 						<p style="margin-left:119px;position:absolute;z-index:1000;">曼哈顿音乐学院</p>
@@ -39,7 +39,7 @@
 					</div>
 					</router-link>
 
-					<router-link to="/news/3">
+					<router-link to="/school/3">
 					<div class="wrapper-content_img">
 						<div style="background-color:white;width:350px;height:24px;text-align:center;">
 						<p style="margin-left:119px;position:absolute;z-index:1000;">旧金山音乐学院</p>
@@ -48,7 +48,7 @@
 					</div>
 					</router-link>
 
-					<router-link to="/news/4">
+					<router-link to="/school/4">
 					<div class="wrapper-content_img">
 						<div style="background-color:white;width:350px;height:24px;text-align:center;">
 						<p style="margin-left:127px;position:absolute;z-index:1000;">加州艺术学院</p>
@@ -57,7 +57,7 @@
 					</div>
 					</router-link>
 
-					<router-link to="/news/5">
+					<router-link to="/school/5">
 					<div class="wrapper-content_img">
 						<div style="background-color:white;width:350px;height:24px;text-align:center;">
 						<p style="margin-left:71px;position:absolute;z-index:1000;">霍普金斯大学皮博蒂音乐学院</p>

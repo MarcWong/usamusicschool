@@ -5,8 +5,8 @@ import App from './App'
 import VueResource from 'vue-resource' 
 import VueRouter from 'vue-router'
 import Home from './components/Home.vue'
+import School from './components/Schools.vue'
 import News from './components/News.vue'
-import Collection from './components/Collections.vue'
 import HomeFirst from './components/HomeFirst.vue'
 import store from './store/index'
 import Aboutus from './components/Aboutus.vue'
@@ -23,10 +23,10 @@ const router=new VueRouter({
 		]	
 	},
 	{
-		path:'/news/:id',component:News
+		path:'/school/:id',component:School
 	},
 	{
-		path:'/collections',component:Collection
+		path:'/news',component:News
 	},
 	{
 		path:'/aboutus',component:Aboutus
