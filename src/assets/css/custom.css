@@ -80,17 +80,6 @@ color: #666;
     flex: 1;
 }
 
-.background-whitesmoke{
-    background: #f2f2f2;
-    height:92vh;
-}
-
-.background-white {
-    background: white;
-    height:92vh;
-}
-
-
 .content-l {
     font-size: 15px;
     color: #666;

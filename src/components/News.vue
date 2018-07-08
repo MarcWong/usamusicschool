@@ -6,17 +6,26 @@
 			</li>
 		</ul>
 		<div class="article_right">
-			<a v-if="isDetail" @click="closeNewsDetail" class="article_title">点此返回</a>
-			<p v-if="isDetail" class="article_pic">
-				{{detailedNews.title}} &nbsp; {{detailedNews.update_time}}
-			</p>
-			<p v-if="isDetail" class="article_pic">
-				{{detailedNews.content}}
-			</p>
-			<a v-else @click="getNewsDetail(news.id)" v-for="news in NewsList" :key="news.id" class="article_pic">
-				{{news.title}} &nbsp; {{news.update_time}}
-			</a>
+			<div v-if="isDetail" >
+				<a @click="closeNewsDetail" class="article_title">点此返回</a>
+				<p class="article_pic">
+					{{detailedNews.title}} &nbsp; {{detailedNews.update_time}}
+				</p>
+				<p class="article_pic">
+					{{detailedNews.content}}
+				</p>
+			</div>
+			
+			<div v-else v-for="news in NewsList" :key="news.id" class="article_pic">
+				<a @click="getNewsDetail(news.id)">{{news.title}} &nbsp; {{news.update_time}}</a>
 
+				<div>
+					<a v-show="pageNumber>0" @click="lastPage">上一页</a>
+					<a v-show="canTurnPage" @click="nextPage">下一页</a>
+				</div>
+			</div>
+
+			<p v-show="NewsList.length===0">暂无相关信息</p>
 		</div>
 	</div>	
 </template>
@@ -27,6 +36,8 @@ import {mapGetters} from 'vuex'
 	export default {
 		data (){
 			return {
+				canTurnPage:false,
+				pageNumber:0,
 				isDetail:false,
 				ListId: -1,
 				NewsList:[],
@@ -45,7 +56,7 @@ import {mapGetters} from 'vuex'
 			}
 		},
 		created(){
-			this.getNews(2);
+			this.getNews(0);
 			this.$store.dispatch('changeShow','news')
 		},
 		computed:{
@@ -60,11 +71,13 @@ import {mapGetters} from 'vuex'
 				console.log(that.ListId);
 				axios({
 					method: 'get',
-					url: that.basicUrl + '/news/' + id + '/list/'
+					url: that.basicUrl + '/news/' + id + '/list/' + that.pageNumber + '/'
 				})
 				.then(function (res) {
 					console.log(res.data)
 					that.NewsList = res.data
+					if(res.data.length === 10)
+						that.canTurnPage = true;
 				})
 				.catch(function(error){
 					console.log('Exptions:',error)
@@ -92,6 +105,46 @@ import {mapGetters} from 'vuex'
 			},
 			closeNewsDetail(){
 				this.isDetail = false;
+			},
+			lastPage(){
+				let that = this;
+				this.pageNumber--;
+				console.log(this.pageNumber);
+				axios({
+					method: 'get',
+					url: that.basicUrl + '/news/' + that.ListId + '/list/' + that.pageNumber + '/'
+				})
+				.then(function (res) {
+					console.log(res.data)
+					that.NewsList = res.data
+					if(res.data.length === 10)
+						that.canTurnPage = true;
+					else
+						that.canTurnPage = false;
+				})
+				.catch(function(error){
+					console.log('Exptions:',error)
+				})
+			},
+			nextPage(){
+				let that = this;
+				this.pageNumber++;
+				console.log(this.pageNumber);
+				axios({
+					method: 'get',
+					url: that.basicUrl + '/news/' + that.ListId + '/list/' + that.pageNumber + '/'
+				})
+				.then(function (res) {
+					console.log(res.data)
+					that.NewsList = res.data
+					if(res.data.length === 10)
+						that.canTurnPage = true;
+					else
+						that.canTurnPage = false;
+				})
+				.catch(function(error){
+					console.log('Exptions:',error)
+				})
 			}
 		}
 	}

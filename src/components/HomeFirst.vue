@@ -13,9 +13,12 @@
 			<a href="https://www.oberlin.edu">
 				<img alt="4" :src="'../static/school/欧柏林音乐学院logo.jpg'" class="kaws"/>
 			</a>
-			<a href="http://peabody.jhu.edu/">
-				<img alt="5" :src="'../static/school/霍普金斯大学皮博蒂音乐学院logo.jpg'" class="kaws"/>
+			<a href="http://www.hartford.edu//hartt/default.aspx">
+				<img alt="5" :src="'../static/school/哈特福德大学logo.jpg'" class="kaws"/>
 			</a>
+			<!-- <a href="http://peabody.jhu.edu/">
+				<img alt="5" :src="'../static/school/霍普金斯大学皮博蒂音乐学院logo.jpg'" class="kaws"/>
+			</a> -->
 		</div>
 		<div class="container">
 			<div class="wrapper" :style="{width:originalData.img_width+'px',height:originalData.img_height-20+'px',top:home_first_height_margin+'px'}" @mouseover="stop" @mouseout="play">
@@ -60,19 +63,27 @@
 					<router-link to="/school/5">
 					<div class="wrapper-content_img">
 						<div style="background-color:white;width:350px;height:24px;text-align:center;">
+						<p style="margin-left:127px;position:absolute;z-index:1000;">哈特福德大学</p>
+						</div>
+						<img alt="5" :src="'../static/school/哈特福德大学.jpg'" :style="{width:originalData.img_width+'px',height:originalData.img_height+'px'}"/>
+					</div>
+					</router-link>
+					<!-- <router-link to="/school/5">
+					<div class="wrapper-content_img">
+						<div style="background-color:white;width:350px;height:24px;text-align:center;">
 						<p style="margin-left:71px;position:absolute;z-index:1000;">霍普金斯大学皮博蒂音乐学院</p>
 						</div>
 						<img alt="5" :src="'../static/school/霍普金斯大学皮博蒂音乐学院.jpg'" :style="{width:originalData.img_width+'px',height:originalData.img_height+'px'}"/>
 					</div>
-					</router-link>
+					</router-link> -->
 				</div>
 				
 				<div class="wrapper-buttons" :style="{left:(originalData.img_width-100)/2+'px'}">
-					<span :class="['wrapper-button',{'wrapper_on':index==1}]"  @click="turnTo(1)"></span>
-					<span :class="['wrapper-button',{'wrapper_on':index==2}]"  @click="turnTo(2)"></span>
-					<span :class="['wrapper-button',{'wrapper_on':index==3}]"  @click="turnTo(3)"></span>
-					<span :class="['wrapper-button',{'wrapper_on':index==4}]"  @click="turnTo(4)"></span>
-					<span :class="['wrapper-button',{'wrapper_on':index==5}]"  @click="turnTo(5)"></span>
+					<span :class="['wrapper-button',{'wrapper_on':index===1}]"  @click="turnTo(1)"></span>
+					<span :class="['wrapper-button',{'wrapper_on':index===2}]"  @click="turnTo(2)"></span>
+					<span :class="['wrapper-button',{'wrapper_on':index===3}]"  @click="turnTo(3)"></span>
+					<span :class="['wrapper-button',{'wrapper_on':index===4}]"  @click="turnTo(4)"></span>
+					<!-- <span :class="['wrapper-button',{'wrapper_on':index===5}]"  @click="turnTo(5)"></span> -->
 				</div>
 
 				<a href="javascript:;" class="wrapper-arrow wrapper-prev" :style="{marginTop:-originalData.btn_width/2+'px'}" @click="prev"></a>

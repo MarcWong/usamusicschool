@@ -1,8 +1,8 @@
 {
-  "name": "vogue",
+  "name": "usamusicschool",
   "version": "1.0.0",
   "description": "A Vue.js project",
-  "author": "UNDERCOVERj <766348980@qq.com>",
+  "author": "Marcwong <brucewayne@pku.edu.cn>",
   "private": true,
   "scripts": {
     "dev": "node build/dev-server.js",
