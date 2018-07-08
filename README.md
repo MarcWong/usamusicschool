@@ -3,8 +3,7 @@
 ***觉得不错，给我的github源码点个赞吧QAQ***
 
 ![图片描述](https://segmentfault.com/img/bVI3GV?w=1366&h=591)
-## 前言
-这篇文章是总结自己写项目时的思路，遇到的问题，和学到的东西，本文只截取一部分来讲，源码已奉上，觉得项目还行的点个赞吧，谢谢
+
 ## 一、搭建环境
  - 安装vue-cli
 > npm install -g vue-cli
@@ -19,6 +18,7 @@
 > npm install vuex --save-dev
  - 运行
 > npm run dev
+
 ## 二、目录结构
 ![图片描述](https://segmentfault.com/img/bVI3Eq?w=209&h=652)
  - components中是所有页面组件
@@ -27,11 +27,7 @@
  - dist文件是后来npm run build后生成的，生成的dist中的index.html中的link都是没有加引号的，我自己加上才可以直接运行
 ## 三、项目开发
 开发过程中，页面是一个一个写的，不过还是要先确定路由，路由嵌套
-### main.js
-先说说路由吧，写在了main.js中，直接上图
-![图片描述](https://segmentfault.com/img/bVI3Hm?w=540&h=515)
 
-文章开头有首页，home的路径就是‘/home’，这里路由嵌套，用‘:id’来识别，Brands.vue组件在后文中会解释如何得到id，home页的八个导航，分别导向‘/home’,‘/news’，'/collections','/shop','/home/clot','/home/madness','/home/bape','/home/assc',购物车导向'/cart','login|register'导向‘/login’,'/newsarticle'是在news组件中导向的，‘/shoppingitem’是shop组件中导向的
 ### App.vue
 ![图片描述](https://segmentfault.com/img/bVI3Io?w=719&h=628)
 ![图片描述](https://segmentfault.com/img/bVI3Ip?w=551&h=114)
@@ -469,27 +465,3 @@ Action 可以包含任意异步操作。
     	}
     ]
 有时候我们需要从 store 中的 state 中派生出一些状态,或用于得到信息
-## 五、总结
-自己写的这个项目，蛮有收获的，遇到了问题到处问，都解决的差不多了，
-下面罗列了一些收货和本项目的不足
-    
-
- - Firefox中不支持 table 的 min-height
- -  CSS 的话 考虑用 normalize.css解决不同浏览器初始样式不一样的问题
- -  css 的命名啥的可以参考一下 BEM 的命名规范
- - 代码组织有点杂乱
- - vuex只要专心做页面状态管理，尽量不要掺杂页面数据
- - <input type="checkbox" @change="selectAll" id="selectAll" v-model="isAll"/>此处的isAll是从state中get到得数据，可以被改变，我自己尝试得到的这个结论
- - 轮播还需要改进
- - 第一次在gh-pages中显示时，发现图片加载太慢 ，于是我把图片压缩了
- - 在用git上传代码是出过差错，解决了。
-
-最后感谢您能阅读到这里，本人小白，努力学习中，献丑了。
-## 参考资料
-
- - Vue2.0中文文档：https://cn.vuejs.org/
- - Vue-router2.0中文文档：http://router.vuejs.org/zh-cn/essentials/getting-started.html
- - Vuex2.0中文文档：http://router.vuejs.org/zh-cn/essentials/getting-started.html
- - git教程：http://www.liaoxuefeng.com/
-
-
