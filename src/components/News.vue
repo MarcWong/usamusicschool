@@ -2,7 +2,7 @@
 	<div class="news flex">
 		<ul>
 			<li v-for="oneList in listItems" :key="oneList.id" class="column_left">
-				<a :class="{listItemSelected:oneList.id === ListId}" @click="getNews(oneList.id)" class="news_p">{{oneList.name}}</a>
+				<a :class="{listItemSelected:oneList.id === ListId}" @click="listClick(oneList.id)" class="news_p">{{oneList.name}}</a>
 			</li>
 		</ul>
 		<div class="article_right">
@@ -16,16 +16,15 @@
 				</p>
 			</div>
 			
-			<div v-else v-for="news in NewsList" :key="news.id" class="article_pic">
+			<div v-else>
+				<div v-for="news in NewsList" :key="news.id" class="article_pic">
 				<a @click="getNewsDetail(news.id)">{{news.title}} &nbsp; {{news.update_time}}</a>
-
-				<div>
-					<a v-show="pageNumber>0" @click="lastPage">上一页</a>
-					<a v-show="canTurnPage" @click="nextPage">下一页</a>
 				</div>
-			</div>
+				<p v-show="NewsList.length===0">暂无相关信息</p>
+				<a v-show="pageNumber>0" @click="lastPage">上一页</a>
+				<a v-show="canTurnPage" @click="nextPage">下一页</a>
 
-			<p v-show="NewsList.length===0">暂无相关信息</p>
+			</div>
 		</div>
 	</div>	
 </template>
@@ -65,10 +64,14 @@ import {mapGetters} from 'vuex'
 			})
 		},
 		methods:{
+			listClick(id){
+				this.pageNumber = 0;
+				this.closeNewsDetail();
+				this.getNews(id);
+			},
 			getNews(id){
-				let that = this
-				that.ListId = id;
-				console.log(that.ListId);
+				let that = this;
+				this.ListId = id;
 				axios({
 					method: 'get',
 					url: that.basicUrl + '/news/' + id + '/list/' + that.pageNumber + '/'
@@ -78,6 +81,8 @@ import {mapGetters} from 'vuex'
 					that.NewsList = res.data
 					if(res.data.length === 10)
 						that.canTurnPage = true;
+					else
+						that.canTurnPage = false;
 				})
 				.catch(function(error){
 					console.log('Exptions:',error)
@@ -89,7 +94,7 @@ import {mapGetters} from 'vuex'
 				if(id === this.detailedNewsId)
 					return;
 				this.detailedNewsId = id
-				console.log(this.ListId,id);
+				// console.log(this.ListId,id);
 				axios({
 					method: 'get',
 					url: that.basicUrl + '/news/' + id + '/'
@@ -110,41 +115,13 @@ import {mapGetters} from 'vuex'
 				let that = this;
 				this.pageNumber--;
 				console.log(this.pageNumber);
-				axios({
-					method: 'get',
-					url: that.basicUrl + '/news/' + that.ListId + '/list/' + that.pageNumber + '/'
-				})
-				.then(function (res) {
-					console.log(res.data)
-					that.NewsList = res.data
-					if(res.data.length === 10)
-						that.canTurnPage = true;
-					else
-						that.canTurnPage = false;
-				})
-				.catch(function(error){
-					console.log('Exptions:',error)
-				})
+				this.getNews(this.ListId);
 			},
 			nextPage(){
 				let that = this;
 				this.pageNumber++;
 				console.log(this.pageNumber);
-				axios({
-					method: 'get',
-					url: that.basicUrl + '/news/' + that.ListId + '/list/' + that.pageNumber + '/'
-				})
-				.then(function (res) {
-					console.log(res.data)
-					that.NewsList = res.data
-					if(res.data.length === 10)
-						that.canTurnPage = true;
-					else
-						that.canTurnPage = false;
-				})
-				.catch(function(error){
-					console.log('Exptions:',error)
-				})
+				this.getNews(this.ListId);
 			}
 		}
 	}
